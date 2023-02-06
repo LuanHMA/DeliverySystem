@@ -1,5 +1,5 @@
-import { ProductCart } from "./components/ProductCart";
-import { ProductList } from "./components/ProductList";
+import { ProductCart } from "./pages/ProductCart";
+import { ProductList } from "./pages/ProductList";
 
 function App() {
   return (

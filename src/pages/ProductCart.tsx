@@ -1,4 +1,4 @@
-import { Overview } from "./Overview";
+import { Overview } from "../components/Overview";
 
 export function ProductCart() {
   return (
