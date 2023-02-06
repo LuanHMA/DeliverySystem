@@ -1,4 +1,10 @@
 import { PlusCircle, XCircle } from "phosphor-react";
+import { useDispatch } from "react-redux";
+import {
+  removeOneProductToCart,
+  increaseQtdProduct,
+  decreaseQtdProduct,
+} from "../../redux/features/products/products-slice";
 
 interface OverviewActionsProps {
   position: number;
@@ -6,15 +12,29 @@ interface OverviewActionsProps {
 }
 
 export function OverviewActions({ position, qtdItems }: OverviewActionsProps) {
+  const dispatch = useDispatch();
+
+  function addItem() {
+    dispatch(increaseQtdProduct(position));
+  }
+
+  function removeItem() {
+    if (qtdItems === 1) {
+      dispatch(removeOneProductToCart(position));
+    } else {
+      dispatch(decreaseQtdProduct(position));
+    }
+  }
+
   return (
     <div className="flex item-center justify-start gap-x-2 mt-1">
       <span className="text-white text-lg font-bold">Qtd: </span>
       <div className="flex items-center justify-center gap-x-1">
-        <button>
+        <button onClick={removeItem}>
           <XCircle size={30} weight="fill" color="red" />
         </button>
         <span className="text-white text-lg font-bold">{qtdItems} </span>
-        <button>
+        <button onClick={addItem}>
           <PlusCircle size={30} weight="fill" />
         </button>
       </div>

@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { setNewProductToCart } from "../../redux/features/products/products-slice";
 
 export function Overview() {
-  const productsState = useAppSelector((state) => state);
+  const { products } = useAppSelector((state) => state);
   const dispatch = useDispatch();
 
   return (
     <div className="overflow-auto max-h-[570px] ">
-      {productsState.map(({ name, price, qtd }, index) => {
+      {products.map(({ name, price, qtd }, index) => {
         return (
           <div
             className="flex items-center w-full bg-neutral-900 mt-4 p-4 text-white rounded-lg "

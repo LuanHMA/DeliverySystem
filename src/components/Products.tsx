@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootType } from "../redux/store";
 import { setNewProductToCart } from "../redux/features/products/products-slice";
 
-const products = [
+const productsList = [
   { name: "X-Tudo", price: 15 },
   { name: "X-EggBacon", price: 13 },
   { name: "X-Salada", price: 12 },
@@ -11,18 +11,18 @@ const products = [
 ];
 
 export function Products() {
-  const productsState = useSelector((state: RootType) => state);
+  const { products } = useSelector((state: RootType) => state);
   const dispatch = useDispatch();
 
   function addToCart(name: string, price: number) {
-    const data = { name, price, qtd: 1, id: productsState.length };
-
-    dispatch(setNewProductToCart(data));
+    //Cria um novo produto (adicionando no cart e no state) com os dados que estão sendo passados pelo objeto "productList" e sendo enviados pelo map do mesmo.
+    const productData = { name, price, qtd: 1, id: products.length };
+    dispatch(setNewProductToCart(productData));
   }
 
   return (
     <div className="grid grid-cols-3 gap-3 mt-4 p-4 overflow-auto max-h-[600px] ">
-      {products.map(({ name, price }, index) => {
+      {productsList.map(({ name, price }, index) => {
         return (
           <div
             className="bg-neutral-900 max-w-[220px] p-4 rounded-lg flex flex-col items-center "
