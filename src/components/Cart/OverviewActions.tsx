@@ -28,14 +28,14 @@ export function OverviewActions({ position, qtdItems }: OverviewActionsProps) {
 
   return (
     <div className="flex item-center justify-start gap-x-2 mt-1">
-      <span className="text-white text-lg font-bold">Qtd: </span>
+      <span className="text-white text-md sm:text-lg font-bold">Qtd: </span>
       <div className="flex items-center justify-center gap-x-1">
         <button onClick={removeItem}>
           <XCircle size={30} weight="fill" color="red" />
         </button>
         <span className="text-white text-lg font-bold">{qtdItems} </span>
         <button onClick={addItem}>
-          <PlusCircle size={30} weight="fill" />
+          <PlusCircle size={30} weight="fill" color="white" />
         </button>
       </div>
     </div>
