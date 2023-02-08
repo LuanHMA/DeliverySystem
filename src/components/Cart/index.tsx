@@ -3,33 +3,16 @@ import { OverviewActions } from "./OverviewActions";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { ShoppingCartSimple } from "phosphor-react";
 import { Link } from "react-router-dom";
-
-function EmptyCart() {
-  return (
-    <div className="flex flex-col items-center justify-center mt-16">
-      <h1 className="text-2xl text-white flex flex-col items-center">
-        <ShoppingCartSimple size={70} color="white" />
-        Seu carrinho está vázio
-      </h1>
-      <Link
-        to="/"
-        className="bg-green-500 py-2 px-4 rounded-lg mt-4 hover:bg-green-600 transition-all"
-      >
-        Continuar Comprando
-      </Link>
-    </div>
-  );
-}
+import { totProducts } from "../../utils/totProducts";
 
 export function Overview() {
-  const { products } = useAppSelector((state) => state);
+  const { productsCart } = useAppSelector((state) => state);
+  console.log(productsCart);
 
   return (
-    <div className="overflow-auto max-h-[570px] ">
-      {products.length == 0 ? (
-        <EmptyCart />
-      ) : (
-        products.map(({ name, price, qtd }, index) => {
+    <div className="flex flex-col justify-between gap-y-12">
+      <div className="overflow-auto max-h-[570px] ">
+        {productsCart.map(({ name, price, qtd }, index) => {
           return (
             <div
               className="flex items-center w-full bg-neutral-900 mt-4 p-4 text-white rounded-lg "
@@ -47,8 +30,22 @@ export function Overview() {
               </div>
             </div>
           );
-        })
-      )}
+        })}
+      </div>
+
+      <div className="flex flex-col items-center">
+        <h1
+          className={`bg-neutral-900 p-2 rounded-lg rounded-b-none w-1/2 m-auto text-white text-xl text-center`}
+        >
+          <b>Total:</b> R$ 300,00
+        </h1>
+        <button
+          className={`bg-green-600 p-4 rounded-lg rounded-t-none w-1/2 m-auto text-white hover:bg-green-600 transition-all`}
+          onClick={() => totProducts(productsCart)}
+        >
+          Finalizar Pedido
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,34 +1,45 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ProductsProps {
+export interface ProductsCartProps {
   name: string;
   price: number;
   qtd: number;
   id: number;
 }
 interface InitalStateProps {
-  products: Array<ProductsProps>;
+  productsCart: Array<ProductsCartProps>;
 }
 
 const initialState: InitalStateProps = {
-  products: [],
+  productsCart: [],
 };
 
-export const productsSlice = createSlice({
-  name: "products",
+type PayloadProps = PayloadAction<ProductsCartProps>;
+type PayloadNumber = PayloadAction<number>;
+
+export const cartSlice = createSlice({
+  name: "productsCart",
   initialState,
   reducers: {
-    setNewProductToCart: (state, action: PayloadAction<ProductsProps>) => {
-      state.products.push(action.payload);
+    setNewProductToCart: ({ productsCart }, { payload }: PayloadProps) => {
+      productsCart.push(payload);
     },
-    removeOneProductToCart: (state, action: PayloadAction<number>) => {
-      state.products.splice(action.payload, 1);
+
+    removeOneProductToCart: ({ productsCart }, { payload }: PayloadNumber) => {
+      productsCart.splice(payload, 1);
     },
-    increaseQtdProduct: (state, action: PayloadAction<number>) => {
-      state.products[action.payload].qtd += 1;
+
+    increaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
+      productsCart[payload].qtd += 1;
+
+      const initalPrice = productsCart[payload].price;
+      //Preço = preço atual + preço inicial
+      productsCart;
     },
-    decreaseQtdProduct: (state, action: PayloadAction<number>) => {
-      state.products[action.payload].qtd -= 1;
+
+    decreaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
+      productsCart[payload].qtd -= 1;
+      //Preço = preço atual - preço inicial
     },
   },
 });
@@ -38,5 +49,5 @@ export const {
   removeOneProductToCart,
   increaseQtdProduct,
   decreaseQtdProduct,
-} = productsSlice.actions;
-export const productsReducer = productsSlice.reducer;
+} = cartSlice.actions;
+export const productsReducer = cartSlice.reducer;
