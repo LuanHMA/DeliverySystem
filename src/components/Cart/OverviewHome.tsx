@@ -3,7 +3,7 @@ import { ShoppingCart } from "phosphor-react";
 import { OverviewActions } from "./OverviewActions";
 
 export function OverviewHome() {
-  const productsState = useAppSelector((state) => state.productsCart);
+  const { productsState } = useAppSelector((state) => state);
 
   return (
     <div className="hidden md:block bg-neutral-900 h-max rounded-lg p-6">
@@ -12,7 +12,7 @@ export function OverviewHome() {
         Carrinho
       </h1>
 
-      <div className="pl-4">
+      <div>
         {productsState.length === 0 ? (
           <h1 className="text-white">Você ainda não escolheu o seu lanche.</h1>
         ) : (

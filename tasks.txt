@@ -1,9 +1,9 @@
-1- Organizar a tipagem do product-slice com o Products.
-1.1- Criar função que pega o Qtd de todos os items e retorna a soma de todos.
+1- Organizar a tipagem do product-slice com o Products. [OK]
+1.1- Criar função que pega o Qtd de todos os items e retorna a soma de todos. [OK]
 
-2- Aumentar/Diminuir o valor do preço do item quando a quantidade Aumentar/Diminuir
-  -Criar um atributo initialPrice no objeto de produtos.
-  -Criar uma lógica para realização do mesmo no Products-slice.ts
+2- Aumentar/Diminuir o valor do preço do item quando a quantidade Aumentar/Diminuir [OK]
+  -Criar um atributo initialPrice no objeto de produtos. [OK]
+  -Criar uma lógica para realização do mesmo no Products-slice.ts [OK]
 
-3- Mudar a lógica de contagem de itens do Cart
+3- Mudar a lógica de contagem de itens do Cart [OK]
   O total de items do Cart tem que ser a soma do qtd de cada item e não do length do array de items.

@@ -2,38 +2,48 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/logo.jpg";
 import { Container } from "../components/Container";
 import { ShoppingCart } from "phosphor-react";
-import { ProductsList } from "../components/ProductsList";
+import { ProductsList } from "../components/Product/ProductsList";
 import { useAppSelector } from "../hooks/useAppSelector";
 import { OverviewHome } from "../components/Cart/OverviewHome";
 import { totProducts } from "../utils/totProducts";
 
 export function Home() {
-  const productsState = useAppSelector((state) => state.productsCart);
+  const { productsState } = useAppSelector((state) => state);
   const activeAnimate = productsState.length == 0 ? null : "animate-bounce";
 
   return (
     <Container>
       <header className="flex justify-between items-center bg-red-600 p-4 rounded-lg">
         <div>
-          <h1 className="text-white text-xl md:text-2xl font-bold">
-            Imperial Burguer
-          </h1>
-          <h2 className="text-white text-md mb-4 sm:text-lg">
-            Hamburgueria artesanal
-          </h2>
-          <span className="text-white text-sm sm:text-md ">
-            Pedido minímo: <b>R$ 12,00</b>
-          </span>
+          <img
+            src={Logo}
+            alt="KingsBurger Logo"
+            width={100}
+            height={100}
+            className="rounded-lg"
+          />
+          <div className="mt-2">
+            <h1 className="text-white text-lg font-bold sm:text-xl ">
+              Imperial Burguer
+            </h1>
+            <h2 className="text-white text-md mb-2 sm:text-lg">
+              Hamburgueria artesanal
+            </h2>
+            <div className="flex items-center gap-x-2 mb-2">
+              <span className="bg-red-800 text-white text-sm -ml-1 py-1 px-2 rounded-lg sm:text-md">
+                Fechado
+              </span>
+              <span className="text-white text-sm font-bold sm:text-md ">
+                18:00 às 00:00
+              </span>
+            </div>
+            <span className="text-white text-sm sm:text-md ">
+              Pedido minímo: <b>R$ 12,00</b>
+            </span>
+          </div>
         </div>
 
-        <img
-          src={Logo}
-          alt="KingsBurger Logo"
-          width={120}
-          height={120}
-          className="rounded-lg"
-        />
-        <nav className="fixed bottom-5 right-10 sm:right-10 md:right-10 lg:right-44 lg:bottom-10 z-20">
+        <nav className="fixed bottom-5 right-5 sm:right-10 md:right-10 lg:right-44 lg:bottom-10 z-20">
           <Link
             to="/cart"
             className="bg-red-600 rounded-full h-16 w-16 flex items-center justify-center relative p-4"

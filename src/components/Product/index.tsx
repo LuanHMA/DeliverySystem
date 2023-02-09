@@ -1,8 +1,8 @@
 import burgerImg from "../../assets/burger.jpg";
-import { ProductsCartProps } from "../../redux/features/products/products-slice";
+import { ProductsStateProps } from "../../redux/features/products/products-slice";
 
 interface ProductProps {
-  productsData: ProductsCartProps[];
+  productsData: ProductsStateProps[];
   addToCart: (
     name: string,
     price: number,
@@ -37,7 +37,7 @@ export function Product({ productsData, addToCart }: ProductProps) {
                     <h1 className="text-white text-md sm:text-lg font-bold">
                       {name}
                     </h1>
-                    <h2 className="text-white text-sm sm:text-md max-w-[200px] sm:max-w-[450px]">
+                    <h2 className="text-white text-sm sm:text-md max-w-[40vw] sm:max-w-[30vw]">
                       {description}
                     </h2>
                   </div>

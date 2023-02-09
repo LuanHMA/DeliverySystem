@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { setNewProductToCart } from "../redux/features/products/products-slice";
+import { setNewProductToCart } from "../../redux/features/products/products-slice";
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../hooks/useAppSelector";
-import { Product } from "./Product";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { Product } from ".";
 
 //Dados da lista
 const artesanal = [
@@ -64,7 +64,7 @@ const simpleBurgers = [
 ];
 
 export function ProductsList() {
-  const { productsCart } = useAppSelector((state) => state);
+  const { productsState } = useAppSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -79,7 +79,7 @@ export function ProductsList() {
       name,
       price,
       qtd,
-      id: productsCart.length,
+      id: productsState.length,
       initialPrice,
     };
     dispatch(setNewProductToCart(productData));

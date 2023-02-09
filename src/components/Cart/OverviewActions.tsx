@@ -14,17 +14,17 @@ interface OverviewActionsProps {
 export function OverviewActions({ position, qtdItems }: OverviewActionsProps) {
   const dispatch = useDispatch();
 
-  function addItem() {
+  const addItem = () => {
     dispatch(increaseQtdProduct(position));
-  }
+  };
 
-  function removeItem() {
+  const removeItem = () => {
     if (qtdItems === 1) {
       dispatch(removeOneProductToCart(position));
     } else {
       dispatch(decreaseQtdProduct(position));
     }
-  }
+  };
 
   return (
     <div className="flex item-center justify-start gap-x-2 mt-1">

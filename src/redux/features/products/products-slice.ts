@@ -1,46 +1,47 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface ProductsCartProps {
+export interface ProductsStateProps {
   name: string;
   price: number;
   qtd: number;
   id?: number;
   description?: string;
   initialPrice: number;
+  details?: string[];
 }
 interface InitalStateProps {
-  productsCart: Array<ProductsCartProps>;
+  productsState: Array<ProductsStateProps>;
 }
 
 const initialState: InitalStateProps = {
-  productsCart: [],
+  productsState: [],
 };
 
-type PayloadProps = PayloadAction<ProductsCartProps>;
+type PayloadProps = PayloadAction<ProductsStateProps>;
 type PayloadNumber = PayloadAction<number>;
 
 export const cartSlice = createSlice({
-  name: "productsCart",
+  name: "ProductsState",
   initialState,
   reducers: {
-    setNewProductToCart: ({ productsCart }, { payload }: PayloadProps) => {
-      productsCart.push(payload);
+    setNewProductToCart: ({ productsState }, { payload }: PayloadProps) => {
+      productsState.push(payload);
     },
 
-    removeOneProductToCart: ({ productsCart }, { payload }: PayloadNumber) => {
-      productsCart.splice(payload, 1);
+    removeOneProductToCart: ({ productsState }, { payload }: PayloadNumber) => {
+      productsState.splice(payload, 1);
     },
 
-    increaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
-      productsCart[payload].qtd += 1;
+    increaseQtdProduct: ({ productsState }, { payload }: PayloadNumber) => {
+      productsState[payload].qtd += 1;
       //Lógica para aumentar o preço do item
-      productsCart[payload].price += productsCart[payload].initialPrice;
+      productsState[payload].price += productsState[payload].initialPrice;
     },
 
-    decreaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
-      productsCart[payload].qtd -= 1;
+    decreaseQtdProduct: ({ productsState }, { payload }: PayloadNumber) => {
+      productsState[payload].qtd -= 1;
       //Logica para diminuir o preço do item
-      productsCart[payload].price -= productsCart[payload].initialPrice;
+      productsState[payload].price -= productsState[payload].initialPrice;
     },
   },
 });
