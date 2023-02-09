@@ -42,7 +42,7 @@ export function Home() {
             <span
               className={`flex items-center justify-center absolute top-12 lg:top-12 right-0 text-xl bg-white rounded-full w-8 h-8 lg:w-6 lg:h-6  ${activeAnimate}`}
             >
-              {productsState.length}
+              {totProducts(productsState)}
             </span>
           </Link>
         </nav>
