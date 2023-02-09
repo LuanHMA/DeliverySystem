@@ -43,7 +43,7 @@ export function Home() {
           </div>
         </div>
 
-        <nav className="fixed bottom-5 right-5 sm:right-10 md:right-10 lg:right-44 lg:bottom-10 z-20">
+        <nav className="fixed bottom-8 right-5 sm:right-10 md:right-10 lg:right-44 lg:bottom-10 z-20">
           <Link
             to="/cart"
             className="bg-red-600 rounded-full h-16 w-16 flex items-center justify-center relative p-4"
