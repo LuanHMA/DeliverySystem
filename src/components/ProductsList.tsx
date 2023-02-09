@@ -1,20 +1,10 @@
-import burgerImg from "../assets/burger.jpg";
-import { useDispatch, useSelector } from "react-redux";
-import { RootType } from "../redux/store";
+import { useDispatch } from "react-redux";
 import { setNewProductToCart } from "../redux/features/products/products-slice";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../hooks/useAppSelector";
+import { Product } from "./Product";
 
-interface ProductsData {
-  name: string;
-  price: number;
-  description: string;
-}
-interface ProductProps {
-  productsData: ProductsData[];
-  addToCart: (name: string, price: number) => void;
-}
-
+//Dados da lista
 const artesanal = [
   {
     name: "Imperador",
@@ -22,6 +12,7 @@ const artesanal = [
     description:
       "2 hambúrgueres, alface, queijo, molho brothers especial, picles num pão de gergelim",
     initialPrice: 38,
+    qtd: 1,
   },
   {
     name: "Rei",
@@ -29,6 +20,7 @@ const artesanal = [
     description:
       "Nosso delicioso El Bacon porém em dose dupla, pão brioche, 2 blend de 100g, fatias de cheddar cremosa, fatias de bacon em tiras crocantes e molho à sua escolha.",
     initialPrice: 35,
+    qtd: 1,
   },
   {
     name: "Rainha",
@@ -36,6 +28,7 @@ const artesanal = [
     description:
       "Pão brioche selado na chapa, 3 blends de 90g, fatias de queijo cheddar, fatias de bacon e molho à sua escolha.",
     initialPrice: 34,
+    qtd: 1,
   },
 ];
 const simpleBurgers = [
@@ -45,35 +38,50 @@ const simpleBurgers = [
     description:
       "2 Carnes, 2 pães,  2 queijos, 2 presuntos, 2 bacons, 2 calabresas, 2 ovos e molhos",
     initialPrice: 20,
+    qtd: 1,
   },
   {
     name: "X-Tudo",
     price: 14,
     description: "Carne, pão, queijo, presunto, bacon, calabresa, ovo e molhos",
     initialPrice: 14,
+    qtd: 1,
   },
   {
     name: "X-EggBacon",
     price: 13,
     description: "Carne, pão, queijo, presunto, bacon, ovo e molhos",
     initialPrice: 13,
+    qtd: 1,
   },
   {
     name: "X-Salada",
     price: 12,
     description: "Carne, pão, queijo, alface, tomate e cebola roxa",
     initialPrice: 12,
+    qtd: 1,
   },
 ];
 
-export function Products() {
+export function ProductsList() {
   const { productsCart } = useAppSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function addToCart(name: string, price: number) {
-    //Cria um novo produto (adicionando no cart e no state) com os dados que estão sendo passados pelo objeto "productList" e sendo enviados pelo map do mesmo.
-    const productData = { name, price, qtd: 1, id: productsCart.length };
+  //Função para enviar dados para o carrinho.
+  function addToCart(
+    name: string,
+    price: number,
+    initialPrice: number,
+    qtd: number
+  ) {
+    const productData = {
+      name,
+      price,
+      qtd,
+      id: productsCart.length,
+      initialPrice,
+    };
     dispatch(setNewProductToCart(productData));
     navigate("/cart");
   }
@@ -94,48 +102,5 @@ export function Products() {
         <Product productsData={simpleBurgers} addToCart={addToCart} />
       </div>
     </div>
-  );
-}
-
-function Product({ productsData, addToCart }: ProductProps) {
-  return (
-    <>
-      {productsData.map(({ name, price, description }, index) => {
-        return (
-          <>
-            <div
-              className="bg-neutral-800 rounded-lg mt-4 py-4 flex justify-between cursor-pointer transition-all hover:bg-neutral-900 hover:border-white"
-              key={index}
-              onClick={() => addToCart(name, price)}
-            >
-              <div className="flex items-start">
-                <img
-                  src={burgerImg}
-                  alt={name}
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "10px",
-                  }}
-                />
-                <div className="ml-2 max-w-[220px] md:max-w-[400px]">
-                  <h1 className="text-white text-md sm:text-lg font-bold">
-                    {name}
-                  </h1>
-                  <h2 className="text-white text-sm sm:text-md max-w-[200px] sm:max-w-[450px]">
-                    {description}
-                  </h2>
-                </div>
-              </div>
-              <span className="text-white text-sm sm:text-lg font-bold">
-                R$ {price.toFixed(2)}
-              </span>
-            </div>
-
-            <div className="bg-neutral-900 opacity-50 h-[1px] w-full rounded-lg"></div>
-          </>
-        );
-      })}
-    </>
   );
 }

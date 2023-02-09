@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/logo.jpg";
 import { Container } from "../components/Container";
 import { ShoppingCart } from "phosphor-react";
-import { Products } from "../components/Products";
+import { ProductsList } from "../components/ProductsList";
 import { useAppSelector } from "../hooks/useAppSelector";
 import { OverviewHome } from "../components/Cart/OverviewHome";
 import { totProducts } from "../utils/totProducts";
 
-export function ProductList() {
+export function Home() {
   const productsState = useAppSelector((state) => state.productsCart);
-
   const activeAnimate = productsState.length == 0 ? null : "animate-bounce";
+
   return (
     <Container>
       <header className="flex justify-between items-center bg-red-600 p-4 rounded-lg">
@@ -49,7 +49,7 @@ export function ProductList() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-division relative mt-10">
-        <Products />
+        <ProductsList />
         <OverviewHome />
       </div>
     </Container>

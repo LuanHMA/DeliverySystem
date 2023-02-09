@@ -4,7 +4,9 @@ export interface ProductsCartProps {
   name: string;
   price: number;
   qtd: number;
-  id: number;
+  id?: number;
+  description?: string;
+  initialPrice: number;
 }
 interface InitalStateProps {
   productsCart: Array<ProductsCartProps>;
@@ -31,15 +33,14 @@ export const cartSlice = createSlice({
 
     increaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
       productsCart[payload].qtd += 1;
-
-      const initalPrice = productsCart[payload].price;
-      //Preço = preço atual + preço inicial
-      productsCart;
+      //Lógica para aumentar o preço do item
+      productsCart[payload].price += productsCart[payload].initialPrice;
     },
 
     decreaseQtdProduct: ({ productsCart }, { payload }: PayloadNumber) => {
       productsCart[payload].qtd -= 1;
-      //Preço = preço atual - preço inicial
+      //Logica para diminuir o preço do item
+      productsCart[payload].price -= productsCart[payload].initialPrice;
     },
   },
 });
