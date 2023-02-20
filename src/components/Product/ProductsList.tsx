@@ -86,6 +86,7 @@ export function ProductsList() {
       initialPrice,
     };
     dispatch(setNewProductToCart(productData));
+    navigate("/cart");
   }
 
   return (
