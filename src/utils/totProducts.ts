@@ -1,7 +1,7 @@
 import { useAppSelector } from "../hooks/useAppSelector";
-import { ProductsCartProps } from "../redux/features/products/products-slice";
+import { ProductsStateProps } from "../redux/features/products/products-slice";
 
-export function totProducts(products: ProductsCartProps[]) {
+export function totProducts(products: ProductsStateProps[]) {
   let totProducts = 0;
 
   products.map((product) => {

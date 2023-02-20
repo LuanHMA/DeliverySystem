@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setNewProductToCart } from "../../redux/features/products/products-slice";
+import { selectProduct } from "../../redux/features/products/products-slice";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { Product } from ".";
@@ -82,22 +82,21 @@ export function ProductsList() {
       id: productsState.length,
       initialPrice,
     };
-    dispatch(setNewProductToCart(productData));
-    navigate("/cart");
+    dispatch(selectProduct(productData));
   }
 
   return (
     <div>
       <div className="sm:pr-4">
         <h1 className="bg-yellow-500 rounded-lg text-xl p-2 font-bold">
-          Burgues Reais
+          Burgues Premium
         </h1>
         <Product productsData={artesanal} addToCart={addToCart} />
       </div>
 
       <div className="mt-6 sm:pr-4">
         <h1 className="bg-yellow-500 rounded-lg text-xl p-2 font-bold">
-          Burgues Pebleus
+          Burgues Simples
         </h1>
         <Product productsData={simpleBurgers} addToCart={addToCart} />
       </div>

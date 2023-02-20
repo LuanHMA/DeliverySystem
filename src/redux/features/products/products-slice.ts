@@ -11,10 +11,12 @@ export interface ProductsStateProps {
 }
 interface InitalStateProps {
   productsState: Array<ProductsStateProps>;
+  selectedProduct: Array<ProductsStateProps>;
 }
 
 const initialState: InitalStateProps = {
   productsState: [],
+  selectedProduct: [],
 };
 
 type PayloadProps = PayloadAction<ProductsStateProps>;
@@ -27,7 +29,9 @@ export const cartSlice = createSlice({
     setNewProductToCart: ({ productsState }, { payload }: PayloadProps) => {
       productsState.push(payload);
     },
-
+    selectProduct: ({ selectedProduct }, { payload }: PayloadProps) => {
+      selectedProduct.push(payload);
+    },
     removeOneProductToCart: ({ productsState }, { payload }: PayloadNumber) => {
       productsState.splice(payload, 1);
     },
@@ -51,5 +55,6 @@ export const {
   removeOneProductToCart,
   increaseQtdProduct,
   decreaseQtdProduct,
+  selectProduct,
 } = cartSlice.actions;
 export const productsReducer = cartSlice.reducer;
