@@ -32,7 +32,7 @@ export function Overview() {
         <h1
           className={`bg-neutral-900 p-2 rounded-lg rounded-b-none w-full max-w-md m-auto text-white text-xl text-center font-bold`}
         >
-          <span className="text-sm mr-1 font-normal">TOTAL</span>
+          <span className="text-sm mr-1 font-normal">TOTAL</span>\
           <span className="text-green-500">R$ {totAmountState.toFixed(2)}</span>
         </h1>
         <button

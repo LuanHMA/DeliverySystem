@@ -10,7 +10,7 @@ export function EmptyCart() {
       </h1>
       <Link
         to="/"
-        className="bg-green-500 py-4 mt-4 rounded-lg w-1/3 m-auto text-white text-xl font-bold transition-all text-center"
+        className="bg-green-500 py-4 mt-4 rounded-lg w-full max-w-md m-auto text-white text-xl font-bold transition-all text-center"
       >
         Continuar Comprando
       </Link>
