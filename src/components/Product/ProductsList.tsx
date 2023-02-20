@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
-import { selectProduct } from "../../redux/features/products/products-slice";
+import {
+  selectProduct,
+  setNewProductToCart,
+} from "../../redux/features/products/products-slice";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { Product } from ".";
@@ -82,7 +85,7 @@ export function ProductsList() {
       id: productsState.length,
       initialPrice,
     };
-    dispatch(selectProduct(productData));
+    dispatch(setNewProductToCart(productData));
   }
 
   return (
