@@ -13,7 +13,7 @@ export function Home() {
 
   return (
     <Container>
-      <header className="flex justify-between items-center bg-red-600 p-4 rounded-lg">
+      <header className="flex justify-between items-center bg-red-600 p-4 rounded-lg relative">
         <div>
           <img
             src={Logo}
@@ -24,7 +24,7 @@ export function Home() {
           />
           <div className="mt-2">
             <h1 className="text-white text-lg font-bold sm:text-xl ">
-              Imperial Burguer
+              Valhala Burguer
             </h1>
             <h2 className="text-white text-md mb-2 sm:text-lg">
               Hamburgueria artesanal
@@ -38,12 +38,12 @@ export function Home() {
               </span>
             </div>
             <span className="text-white text-sm sm:text-md ">
-              Pedido minímo: <b>R$ 12,00</b>
+              Pedido minímo: <b>R$ 11,00</b>
             </span>
           </div>
         </div>
 
-        <nav className="fixed bottom-8 right-5 sm:right-10 md:right-10 lg:right-44 lg:bottom-10 z-20">
+        <nav className="fixed right-10 bottom-10 2xl:right-[30%] z-20">
           <Link
             to="/cart"
             className="bg-red-600 rounded-full h-16 w-16 flex items-center justify-center relative p-4"

@@ -7,7 +7,8 @@ interface ProductProps {
     name: string,
     price: number,
     initialPrice: number,
-    qtd: number
+    qtd: number,
+    description?: string
   ) => void;
 }
 
@@ -21,7 +22,7 @@ export function Product({ productsData, addToCart }: ProductProps) {
               <div
                 className="bg-neutral-800 rounded-lg mt-4 py-4  flex justify-between cursor-pointer transition-all hover:bg-neutral-900 hover:px-4 hover:border-white"
                 key={index}
-                onClick={() => addToCart(name, price, initialPrice, qtd)}
+                onClick={() => addToCart(name, price, initialPrice, qtd,description)}
               >
                 <div className="flex items-start">
                   <img

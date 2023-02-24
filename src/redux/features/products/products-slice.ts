@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
       productsState.push(payload);
     },
     selectProduct: ({ selectedProduct }, { payload }: PayloadProps) => {
-      selectedProduct.push(payload);
+      selectedProduct[0] = payload;
     },
     removeOneProductToCart: ({ productsState }, { payload }: PayloadNumber) => {
       productsState.splice(payload, 1);

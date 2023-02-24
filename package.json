@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.0.2",
+    "@headlessui/react": "^1.7.12",
     "@reduxjs/toolkit": "^1.9.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
