@@ -50,15 +50,7 @@ export function Details({open, setOpen}: DetailsProps) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl border-2 border-neutral-700 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h1"
-                    className="text-xl font-medium leading-6 text-white p-4 bg-neutral-800"
-                  >
-                    Que tal adicionarmos algumas coisas ?
-                  </Dialog.Title>
-                  
                   <List/>
-                  
                 </Dialog.Panel>
               </Transition.Child>
             </div>
