@@ -35,10 +35,10 @@ export function List(){
             </div>
 
             <div className='bg-yellow-500 p-2 rounded-lg'>
-                <h1 className='text-md font-semibold'>Escolha seu molho</h1>
+                <h1 className='text-sm font-semibold sm:text-md'>Escolha seu molho</h1>
             </div>
 
-            <div className='text-white text-md flex flex-col gap-y-1 ml-2'>
+            <div className='text-white text-sm sm:text-md flex flex-col gap-y-1 ml-2'>
                 <label htmlFor="ketchup" className='mt-2 cursor-pointer'>
                     <input type="checkbox" name="ketchup" id="ketchup" className='w-4 h-4'/>
                     <span className='ml-2'>Ketchup</span> 
@@ -64,50 +64,50 @@ export function List(){
                 <h1 className='text-md font-semibold'>Turbine seu Hamburguer</h1>
             </div>
 
-            <div className='text-white text-md flex flex-col gap-y-1 ml-2'>
+            <div className='text-white text-sm sm:text-md flex flex-col gap-y-1 ml-2'>
                 <label className='mt-2 cursor-pointer flex justify-between items-center border border-b-neutral-900 border-t-0 border-l-0 border-r-0 py-2'>
                     <div className='flex items-center gap-x-2'>
                         <IncrementeDecrementButton/>
-                        <span className='text-md font-semibold'>Carne 150g</span> 
+                        <span className='text-sm sm:text-md font-semibold'>Carne 150g</span> 
                     </div>
 
-                    <span className='text-md font-semibold'>+ R$ 9,00</span>
+                    <span className='text-sm sm:text-md font-semibold'>+ R$ 9,00</span>
 
                 </label>
 
                 <label className='mt-2 cursor-pointer flex justify-between items-center border border-b-neutral-900 border-t-0 border-l-0 border-r-0 py-2'>
                     <div className='flex items-center gap-x-2'>
                         <IncrementeDecrementButton/>
-                        <span className='text-md font-semibold'>Bacon extra</span> 
+                        <span className='text-sm sm:text-md font-semibold'>Bacon extra</span> 
                     </div>
 
-                    <span className='text-md font-semibold'>+ R$ 3,00</span>
+                    <span className='text-sm sm:text-md font-semibold'>+ R$ 3,00</span>
 
                 </label>
 
                 <label className='mt-2 cursor-pointer flex justify-between items-center border border-b-neutral-900 border-t-0 border-l-0 border-r-0 py-2'>
                     <div className='flex items-center gap-x-2'>
                         <IncrementeDecrementButton/>
-                        <span className='text-md font-semibold'>Queijo cheedar extra</span> 
+                        <span className='text-sm sm:text-md font-semibold'>Queijo cheedar extra</span> 
                     </div>
 
-                    <span className='text-md font-semibold'>+ R$ 3,00</span>
+                    <span className='text-sm sm:text-md font-semibold'>+ R$ 3,00</span>
 
                 </label>
 
                 <label className='mt-2 cursor-pointer flex justify-between items-center border border-b-neutral-900 border-t-0 border-l-0 border-r-0 py-2'>
                     <div className='flex items-center gap-x-2'>
                         <IncrementeDecrementButton/>
-                        <span className='text-md font-semibold'>Salada extra (alface,tomate e cebola)</span> 
+                        <span className='text-sm sm:text-md font-semibold'>Salada extra (alface,tomate e cebola)</span> 
                     </div>
 
-                    <span className='text-md font-semibold'>+ R$ 3,00</span>
+                    <span className='text-sm sm:text-md font-semibold'>+ R$ 3,00</span>
 
                 </label>
             </div>
 
             <button
-          className={`bg-red-600 py-4 mt-4 rounded-lg w-full m-auto text-white text-md font-bold hover:bg-red-600 transition-all`}
+          className={`bg-red-600 py-4 mt-4 rounded-lg w-full m-auto text-white text-sm sm:text-md font-bold hover:bg-red-600 transition-all`}
         >
           Ir para carrinho
         </button>
