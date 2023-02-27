@@ -1,9 +1,9 @@
 import { PlusCircle, XCircle } from "phosphor-react";
 
 interface IncrementeDecrementButtonProps{
-    increment: ()=> void
-    decrement: ()=> void
-    qtd: number
+    increment?: ()=> void
+    decrement?: ()=> void
+    qtd?: number
 }
 
 export function IncrementeDecrementButton({increment, decrement, qtd}: IncrementeDecrementButtonProps){

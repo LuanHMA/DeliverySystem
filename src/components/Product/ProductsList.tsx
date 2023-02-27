@@ -8,7 +8,6 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { Product } from ".";
 import { Details } from "../../pages/Order/Details";
 import { useState } from "react";
-import { Description } from "@radix-ui/react-dialog";
 
 //Dados da lista
 const artesanal = [
