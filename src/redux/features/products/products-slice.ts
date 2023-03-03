@@ -7,7 +7,7 @@ export interface ProductsStateProps {
   id?: number;
   description?: string;
   initialPrice: number;
-  details?: string[];
+  details?: string[];//Usar outra lógica
 }
 interface InitalStateProps {
   productsState: Array<ProductsStateProps>;
@@ -26,16 +26,20 @@ export const cartSlice = createSlice({
   name: "ProductsState",
   initialState,
   reducers: {
-    setNewProductToCart: ({ productsState }, { payload }: PayloadProps) => {
-      productsState.push(payload);
-    },
+    //Selected Product
     selectProduct: ({ selectedProduct }, { payload }: PayloadProps) => {
       selectedProduct[0] = payload;
     },
+
+    //Products States
+    setNewProductToCart: ({ productsState }, { payload }: PayloadProps) => {
+      productsState.push(payload);
+    },
+
     removeOneProductToCart: ({ productsState }, { payload }: PayloadNumber) => {
       productsState.splice(payload, 1);
     },
-
+    
     increaseQtdProduct: ({ productsState }, { payload }: PayloadNumber) => {
       productsState[payload].qtd += 1;
       //Lógica para aumentar o preço do item
