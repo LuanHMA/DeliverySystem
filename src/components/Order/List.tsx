@@ -5,16 +5,6 @@ import { ProductsStateProps, setNewProductToCart } from '../../redux/features/pr
 import { complements } from '../../data/Lists';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useForm, SubmitHandler } from 'react-hook-form';
-
-type Inputs = {
-    ketchupSauce: string,
-    greenSauce: string,
-    barbecueSauce: string,
-    aioliSauce: string,
-};
-
-
 
 export function List(){
 

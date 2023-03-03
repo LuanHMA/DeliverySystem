@@ -1,6 +1,7 @@
 import { List } from "../../components/Order/List";
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { X } from 'phosphor-react'
 
 //Recuperar o id do produto clicado via Url
 //Trazer informações sobre ele
@@ -49,7 +50,10 @@ export function Details({open, setOpen}: DetailsProps) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl border-2 border-neutral-700 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl border-2 border-neutral-700 text-left align-middle shadow-xl transition-all relative">
+                  <button className="absolute right-4 top-5" onClick={closeModal}>
+                    <X size={30} color="white"/>
+                  </button>
                   <List/>
                 </Dialog.Panel>
               </Transition.Child>
